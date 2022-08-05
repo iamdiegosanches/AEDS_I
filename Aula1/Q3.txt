@@ -1,14 +1,14 @@
 3.
-(a) ptrDataInput = (TInputRecord *)calloc(1, sizeof(TInputRecord)); 
-(b) avenue = (char *)calloc(100, sizeof(char));
-(c) country = (char *)calloc(50, sizeof(char));
-(d) lastName = (char *)calloc(10, sizeof(char));
-(e) firstName = (char *)calloc(100, sizeof(char));
-(f) middleName = (char *)calloc(50, sizeof(char));
-(g) adress->avenue;
-(h) gets(adress->avenue);        ***********************
-(i) gets(record->firstName);     ***********************
-(j) printf("firstName: %s, avenue %s", record->*firstName, adress->*avenue); 
-(k) free(record->firstName);
-    free(adress->avenue);
-(l) free(ptrDataInput);
+    (a) ptrDataInput = (TInputRecord *)calloc(1, sizeof(TInputRecord)); 
+    (b) ptrDataInput->name.adr.avenue = (char *) calloc(100, sizeof (char));
+    (c) ptrDataInput->name.adr.country = (char *) calloc(50, sizeof (char));
+    (d) ptrDataInput->name.lastName = (char *) calloc(10, sizeof (char));
+    (e) ptrDataInput->name.firstName = (char *) calloc(100, sizeof (char));
+    (f) ptrDataInput->name.middleName = (char *) calloc(50, sizeof (char));
+    (g) ptrDataInput->name.adr.avenue;
+    (h) gets(ptrDataInput->name.adr.avenue);
+    (i) gets(ptrDataInput->name.firstName);
+    (j) printf("firstName: %s, avenue: %s", ptrDataInput->name.firstName ,ptrDataInput->name.adr.avenue);
+    (k) free(ptrDataInput->name.firstName);
+        free(ptrDataInput->name.adr.avenue);
+    (l) free(ptrDataInput);
