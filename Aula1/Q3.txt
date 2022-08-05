@@ -1,0 +1,14 @@
+3.
+(a) ptrDataInput = (TInputRecord *)calloc(1, sizeof(TInputRecord)); 
+(b) avenue = (char *)calloc(100, sizeof(char));
+(c) country = (char *)calloc(50, sizeof(char));
+(d) lastName = (char *)calloc(10, sizeof(char));
+(e) firstName = (char *)calloc(100, sizeof(char));
+(f) middleName = (char *)calloc(50, sizeof(char));
+(g) adress->avenue;
+(h) gets(adress->avenue);        ***********************
+(i) gets(record->firstName);     ***********************
+(j) printf("firstName: %s, avenue %s", record->*firstName, adress->*avenue); 
+(k) free(record->firstName);
+    free(adress->avenue);
+(l) free(ptrDataInput);
