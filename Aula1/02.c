@@ -29,11 +29,12 @@ int main()
     str2 = (char *)malloc(sizeof(char));
     
     printf("Entre com a primeira string:\n");
-    gets(str1);
     fflush(stdin);
+    fgets(str1, 50, stdin);
+    
     printf("Entre com a segunda string:\n");
-    gets(str2);
     fflush(stdin);
+    gets(str2, 50, stdin);
     
     int n = StrEnd(str1, str2);
     printf("\n%d", n);
