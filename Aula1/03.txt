@@ -6,8 +6,8 @@
     (e) ptrDataInput->name.firstName = (char *) calloc(100, sizeof (char));
     (f) ptrDataInput->name.middleName = (char *) calloc(50, sizeof (char));
     (g) ptrDataInput->name.adr.avenue;
-    (h) gets(ptrDataInput->name.adr.avenue);
-    (i) gets(ptrDataInput->name.firstName);
+    (h) fgets(ptrDataInput->name.adr.avenue, 50, stdin);
+    (i) fgets(ptrDataInput->name.firstName, 50, stdin);
     (j) printf("firstName: %s, avenue: %s", ptrDataInput->name.firstName ,ptrDataInput->name.adr.avenue);
     (k) free(ptrDataInput->name.firstName);
         free(ptrDataInput->name.adr.avenue);
