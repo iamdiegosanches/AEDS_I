@@ -34,7 +34,7 @@ int main()
     
     printf("Entre com a segunda string:\n");
     fflush(stdin);
-    gets(str2, 50, stdin);
+    fgets(str2, 50, stdin);
     
     int n = StrEnd(str1, str2);
     printf("\n%d", n);
