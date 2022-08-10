@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 char* StrCat (char *destino, char *origem);
 int StrLen (char *string);
@@ -13,9 +14,14 @@ int main () {
     str3 = (char *)calloc(2, sizeof (char));
 
     printf ("Entre com uma string:\n");
-    gets (str1);
+    fflush(stdin);
+    fgets(str1,50,stdin);
+    *(str1+(StrLen(str1))-1) = 0;
+
     printf ("Entre com uma string:\n");
-    gets (str2);
+    fflush(stdin);
+    fgets(str2,50,stdin);
+    *(str2+(StrLen(str2))-1) = 0; // Remove o \n
 
     StrCat(str3, str1);
     StrCat(str3, str2);
@@ -23,7 +29,8 @@ int main () {
 
     printf("O tamanho da string concatenada e: %d\n", StrLen(str3));
 
-    printf("StrCmp: %d", StrCmp(str1, str2));
+    printf("StrCmp: %d\n", StrCmp(str1, str2));
+    printf("%d", strcmp(str1, str2));
 
     free(str1);
     free(str2);
@@ -33,19 +40,17 @@ int main () {
 }
 
 int StrCmp (char *string1, char *string2) {
-    if(*string1 == *string2) {
-        return 0;
-    } else if (*string1 > *string2) {
-        return 1;
+    while(*string1 && (*string1 == *string2)) {
+        string1++;
+        string2++;
     }
-    return -1;
+    return *string1 - *string2;
 }
 
-int StrLen (char *string) { // Retorna o tramanho da string
+int StrLen (char *string) {
     int num = 0;
-    while(*string) {
+    while(*(string + num) != '\0') {
         num ++;
-        string++;
     }
     return num;
 }
