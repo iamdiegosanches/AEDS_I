@@ -89,11 +89,25 @@ void Imprimir(TLista lista)
     }
 }
 
+int Pesquisar (TLista Lista, TProduto Item)
+{
+    TCelula* Aux;
+    Aux = Lista.primeiro;
+    while (Aux->prox != NULL)
+    {
+        if(Aux->prox->item.codigo == Item.codigo)
+            return 1;
+        Aux = Aux->prox;
+    }
+    return 0;
+}
+
 int main()
 {
     TLista lista;
     FLVazia(&lista);
     TProduto x;
+    TProduto y;
 
     int i;
     for (i = 0; i < 2; ++i)
@@ -103,5 +117,7 @@ int main()
     }
 
     Imprimir(lista);
+
+    printf("%d \n", Pesquisar(lista, y));
     return 0;
 }
