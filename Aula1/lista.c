@@ -1,80 +1,107 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct {
+typedef struct
+{
     int codigo;
     char nome[100];
     int quantidade;
     int preco;
 } TProduto;
-typedef struct celula {
+
+typedef struct celula
+{
     TProduto item;
     struct celula *prox;
 } TCelula;
-typedef struct {
+
+typedef struct
+{
     TCelula* primeiro;
     TCelula* ultimo;
     int tamanho;
-}TLista;
+} TLista;
 
-void FLVazia(TLista *Lista) {
+void FLVazia(TLista *Lista)
+{
     Lista->primeiro = (TCelula *)malloc(sizeof(TCelula));
     Lista->ultimo = Lista->primeiro;
     Lista->primeiro->prox = NULL;
     Lista->tamanho = 0;
 }
 
-int Vazia(TLista Lista) {
+int Vazia(TLista Lista)
+{
     return (Lista.primeiro == Lista.ultimo);
 }
 
-int Tamanho (TLista Lista) {
+int Tamanho (TLista Lista)
+{
     return Lista.tamanho;
 }
 
-void Inserir (TProduto x, TLista *Lista) {
+void Inserir (TProduto x, TLista *Lista)
+{
     Lista->ultimo->prox = (TCelula *)malloc(sizeof(TCelula));
     Lista->ultimo = Lista->ultimo->prox;
+    Lista->ultimo->item = x;
     Lista->ultimo->prox = NULL;
     Lista->tamanho++;
 }
 
-void Ler(TProduto *x) {
+// LerProduto e ImprimirProduto são funções auxiliares
+void LerProduto(TProduto *x)
+{
     printf("Digite codigo do produto: ");
-    fflush(stdin);
+    __fpurge(stdin);
     scanf("%d", &x->codigo);
 
     printf("Digite o nome do produto: ");
-    fflush(stdin);
+    __fpurge(stdin);
     fgets(x->nome,100,stdin);
 
     printf("Digite oq quantidade: ");
-    fflush(stdin);
+    __fpurge(stdin);
     scanf("%d", &x->quantidade);
 
     printf("Digite o preco: ");
-    fflush(stdin);
+    __fpurge(stdin);
     scanf("%d", &x->preco);
-
+    printf("\n");
 }
 
-void Imprimir(TProduto *x) {
-    printf("Codigo: %d", x->codigo);
-    printf("Nome: %s", x->nome);
-    printf("Quantidade: %d", x->quantidade);
-    printf("Preco: %d", x->preco);
+void ImprimirProduto(TProduto x)
+{
+    printf("\nCodigo: %d\n", x.codigo);
+    printf("Nome: %s", x.nome);
+    printf("Quantidade: %d\n", x.quantidade);
+    printf("Preco: %d\n\n", x.preco);
 }
 
-int main() {
+void Imprimir(TLista lista)
+{
+    TCelula* Aux;
+    Aux = lista.primeiro->prox;
+    while(Aux != NULL)
+    {
+        ImprimirProduto(Aux->item);
+        Aux = Aux->prox;
+    }
+}
+
+int main()
+{
     TLista lista;
     FLVazia(&lista);
     TProduto x;
-    Inserir(x,&lista);
 
-    for (int i = 0; i < 10; ++i) {
-        Ler(&x);
+    int i;
+    for (i = 0; i < 2; ++i)
+    {
+        LerProduto(&x);
         Inserir(x, &lista);
-        Imprimir(&x);
     }
+
+    Imprimir(lista);
     return 0;
 }
