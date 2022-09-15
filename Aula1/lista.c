@@ -53,19 +53,23 @@ void Inserir (TProduto x, TLista *Lista)
 void LerProduto(TProduto *x)
 {
     printf("Digite codigo do produto: ");
-    __fpurge(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     scanf("%d", &x->codigo);
 
     printf("Digite o nome do produto: ");
-    __fpurge(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     fgets(x->nome,100,stdin);
 
     printf("Digite oq quantidade: ");
-    __fpurge(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     scanf("%d", &x->quantidade);
 
     printf("Digite o preco: ");
-    __fpurge(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     scanf("%d", &x->preco);
     printf("\n");
 }
@@ -89,7 +93,7 @@ void Imprimir(TLista lista)
     }
 }
 
-/*int Pesquisar (TLista Lista, TProduto Item)
+int Pesquisar2 (TLista Lista, TProduto Item)
 {
     TCelula* Aux;
     Aux = Lista.primeiro;
@@ -100,7 +104,7 @@ void Imprimir(TLista lista)
         Aux = Aux->prox;
     }
     return 0;
-}*/
+}
 
 
 TCelula* Pesquisar (TLista Lista, TProduto Item)
@@ -116,12 +120,29 @@ TCelula* Pesquisar (TLista Lista, TProduto Item)
     return NULL;
 }
 
+void Excluir (TLista *Lista, TProduto *Item)
+{
+    TCelula *Aux1, *Aux2;
+    Aux1 = Pesquisar(*Lista, *Item);
+    if(Aux1 != NULL)
+    {
+        Aux2 = Aux1->prox;
+        Aux1->prox = Aux2->prox;
+        *Item = Aux2->item;
+        if(Aux1->prox == NULL)
+        {
+            Lista->ultimo = Aux1;
+        }
+        free(Aux2);
+        Lista->tamanho--;
+    }
+}
+
 int main()
 {
     TLista lista;
     FLVazia(&lista);
     TProduto x;
-    TProduto y;
 
     int i;
     for (i = 0; i < 2; ++i)
@@ -132,6 +153,23 @@ int main()
 
     Imprimir(lista);
 
-    printf("%d \n", Pesquisar(lista, y));
+    if(Pesquisar2(lista, x) == 1) {
+        printf("O item esta na lista!\n");
+    } else {
+        printf("O item nao esta na lista!\n");
+    }
+
+    Excluir(&lista, &x);
+
+    printf("\nDEPOIS DE EXCLUIR!! \n\n");
+
+    if(Pesquisar2(lista, x) == 1) {
+        printf("O item esta na lista!\n");
+    } else {
+        printf("O item nao esta na lista!\n");
+    }
+
+    Imprimir(lista);
+
     return 0;
 }
