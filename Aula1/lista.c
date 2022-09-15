@@ -89,7 +89,7 @@ void Imprimir(TLista lista)
     }
 }
 
-int Pesquisar (TLista Lista, TProduto Item)
+/*int Pesquisar (TLista Lista, TProduto Item)
 {
     TCelula* Aux;
     Aux = Lista.primeiro;
@@ -100,6 +100,20 @@ int Pesquisar (TLista Lista, TProduto Item)
         Aux = Aux->prox;
     }
     return 0;
+}*/
+
+
+TCelula* Pesquisar (TLista Lista, TProduto Item)
+{
+    TCelula* Aux;
+    Aux = Lista.primeiro;
+    while (Aux->prox != NULL)
+    {
+        if(Aux->prox->item.codigo == Item.codigo)
+            return Aux; // Retorna o ponteiro para a célula anterior
+        Aux = Aux->prox;
+    }
+    return NULL;
 }
 
 int main()
