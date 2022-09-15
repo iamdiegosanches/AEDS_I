@@ -130,14 +130,12 @@ void Excluir (TLista *Lista, TProduto *Item)
         Aux1->prox = Aux2->prox;
         *Item = Aux2->item;
         if(Aux1->prox == NULL)
-        {
             Lista->ultimo = Aux1;
-        }
         free(Aux2);
         Lista->tamanho--;
-    } else {
-        Item->codigo = -1;
     }
+    else
+        Item->codigo = -1;
 }
 
 int main()
@@ -154,23 +152,29 @@ int main()
     }
 
     Imprimir(lista);
-/*
-    if(Pesquisar2(lista, x) == 1) {
-        printf("O item esta na lista!\n");
-    } else {
-        printf("O item nao esta na lista!\n");
-    }
-*/
-    printf("Informe o codigo do produto que deseja excluir: ");
+
+    /*
+        if(Pesquisar2(lista, x) == 1) {
+            printf("O item esta na lista!\n");
+        } else {
+            printf("O item nao esta na lista!\n");
+        }
+    */
+
+    if(Pesquisar(lista, x) != NULL)
+        printf("O produto esta na lista!\n");
+    else
+        printf("O produto NAO esta na lista!\n");
+
+    printf("\nInforme o codigo do produto que deseja excluir: ");
     scanf("%d", &x.codigo);
 
     Excluir(&lista, &x);
 
-    if(x.codigo != -1) {
+    if(x.codigo != -1)
         printf("\nItem excluido com sucesso!\n");
-    } else {
+    else
         printf("\nNao foi possivel excluir o produto!\n");
-    }
 
     Imprimir(lista);
 
