@@ -82,10 +82,10 @@ void ImprimirProduto(TProduto x)
     printf("Preco: %d\n\n", x.preco);
 }
 
-void Imprimir(TLista lista)
+void Imprimir(TLista Lista)
 {
     TCelula* Aux;
-    Aux = lista.primeiro->prox;
+    Aux = Lista.primeiro->prox;
     while(Aux != NULL)
     {
         ImprimirProduto(Aux->item);
