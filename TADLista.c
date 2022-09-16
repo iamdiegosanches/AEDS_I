@@ -138,20 +138,37 @@ void Excluir (TLista *Lista, TProduto *Item)
         Item->codigo = -1;
 }
 
+TLista* CopiaLista (TLista *ListaOrigem, TLista *ListaDestino) {
+    if (ListaDestino != NULL) {
+        TCelula *Aux;
+        Aux = ListaOrigem->primeiro->prox;
+        while (Aux != NULL) {
+            Inserir(Aux->item, ListaDestino);
+            Aux = Aux->prox;
+        }
+    } else {
+        return NULL;
+    }
+}
+
 int main()
 {
-    TLista lista;
-    FLVazia(&lista);
+    TLista lista1;
+    TLista lista2;
+
+    FLVazia(&lista1);
+    FLVazia(&lista2);
+
     TProduto x;
 
     int i;
     for (i = 0; i < 2; ++i)
     {
         LerProduto(&x);
-        Inserir(x, &lista);
+        Inserir(x, &lista1);
     }
 
-    Imprimir(lista);
+    Imprimir(lista1);
 
     /*
         if(Pesquisar2(lista, x) == 1) {
@@ -161,7 +178,7 @@ int main()
         }
     */
 
-    if(Pesquisar(lista, x) != NULL)
+    if(Pesquisar(lista1, x) != NULL)
         printf("O produto esta na lista!\n");
     else
         printf("O produto NAO esta na lista!\n");
@@ -169,14 +186,22 @@ int main()
     printf("\nInforme o codigo do produto que deseja excluir: ");
     scanf("%d", &x.codigo);
 
-    Excluir(&lista, &x);
+    Excluir(&lista1, &x);
 
     if(x.codigo != -1)
         printf("\nItem excluido com sucesso!\n");
     else
         printf("\nNao foi possivel excluir o produto!\n");
 
-    Imprimir(lista);
+    printf("\nIMPRIMINDO lista1");
+
+    Imprimir(lista1);
+
+    CopiaLista(&lista1, &lista2);
+
+    printf("\nIMPRIMINDO lista2");
+    Imprimir(lista2);
+
 
     return 0;
 }
