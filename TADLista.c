@@ -138,12 +138,41 @@ void Excluir (TLista *Lista, TProduto *Item)
         Item->codigo = -1;
 }
 
+void LimparLista (TLista *Lista) {
+    if (Lista != NULL) {
+        TCelula *Aux;
+        Aux = Lista->primeiro->prox;
+        while (Aux != NULL) {
+            Excluir(Lista, &Aux->item);
+            Aux = Aux->prox;
+        }
+    }
+}
+
 TLista* CopiaLista (TLista *ListaOrigem, TLista *ListaDestino) {
     if (ListaDestino != NULL) {
         TCelula *Aux;
         Aux = ListaOrigem->primeiro->prox;
+
+        if (Vazia(*ListaDestino) == 0) {
+            LimparLista(ListaDestino);
+        }
+
         while (Aux != NULL) {
             Inserir(Aux->item, ListaDestino);
+            Aux = Aux->prox;
+        }
+    } else {
+        return NULL;
+    }
+}
+
+TLista* CombinarLista (TLista *ListaOrigem, TLista *ListaDestino) {
+    if (ListaDestino != NULL) {
+        TCelula *Aux;
+        Aux = ListaOrigem->primeiro->prox;
+        while (Aux != NULL) {
+
             Aux = Aux->prox;
         }
     } else {
@@ -202,6 +231,9 @@ int main()
     printf("\nIMPRIMINDO lista2");
     Imprimir(lista2);
 
+    printf("\nIMPRIMINDO lista2");
+    CopiaLista(&lista1, &lista2);
+    Imprimir(lista2);
 
     return 0;
 }
