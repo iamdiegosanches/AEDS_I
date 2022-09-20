@@ -53,23 +53,23 @@ void Inserir (TProduto x, TLista *Lista)
 void LerProduto(TProduto *x)
 {
     printf("Digite codigo do produto: ");
-    //__fpurge(stdin);
-    fflush(stdin);
+    __fpurge(stdin);
+    //fflush(stdin);
     scanf("%d", &x->codigo);
 
     printf("Digite o nome do produto: ");
-    //__fpurge(stdin);
-    fflush(stdin);
+    __fpurge(stdin);
+    //fflush(stdin);
     fgets(x->nome,100,stdin);
 
     printf("Digite oq quantidade: ");
-    //__fpurge(stdin);
-    fflush(stdin);
+    __fpurge(stdin);
+    //fflush(stdin);
     scanf("%d", &x->quantidade);
 
     printf("Digite o preco: ");
-    //__fpurge(stdin);
-    fflush(stdin);
+    __fpurge(stdin);
+    //fflush(stdin);
     scanf("%d", &x->preco);
     printf("\n");
 }
@@ -160,6 +160,9 @@ int main()
             printf("O item nao esta na lista!\n");
         }
     */
+
+    printf("\nInforme o codigo do produto que deseja pesquisar: ");
+    scanf("%d", &x.codigo);
 
     if(Pesquisar(lista, x) != NULL)
         printf("O produto esta na lista!\n");
