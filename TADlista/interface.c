@@ -53,7 +53,7 @@ void MENU(TLista *lista1)
             if(produto.codigo != -1)
                 printf("\nItem excluido com sucesso!\n");
             else
-                printf("\nNao foi possivel excluir o produto!\n");
+                printf("\n >>>>>Nao foi possivel excluir o produto! Poduto NAO pertence a lista!!<<<< \n");
 
             break;
         case 4: // IMPRIMIR
@@ -65,13 +65,13 @@ void MENU(TLista *lista1)
             Liberar(lista1);
             //system("clear");
             system("cls");
-            printf("\n\n\n\t >>>>>> MSG: Saindo do MODULO...!!!\n <<<<<<");
+            printf("\n\n\n\t >>>>>> MSG: Saindo do MODULO...!!! <<<<<<\n");
             system("PAUSE");
             break;
         default:
             //system("clear");
             system("cls");
-            printf("\n\n\n\t >>>>>> MSG: Digite uma opcao valida!!! <<<<<<");
+            printf("\n\n\n\t >>>>>> MSG: Digite uma opcao valida!!! <<<<<<\n");
             system("PAUSE");
         } // fim do bloco switch
     }
