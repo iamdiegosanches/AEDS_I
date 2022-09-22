@@ -28,12 +28,13 @@ typedef struct
 void FLVazia(TLista *Lista);
 int Vazia(TLista Lista);
 int Tamanho (TLista Lista);
+void Inserir (TProduto x, TLista *Lista);
 void LerProduto(TProduto *x);
 void ImprimirProduto(TProduto x);
 void Imprimir(TLista lista);
 int Pesquisar2 (TLista Lista, TProduto Item);
 TCelula* Pesquisar (TLista Lista, TProduto Item);
 void Excluir (TLista *Lista, TProduto *Item);
-
+void Liberar (TLista *Lista);
 
 #endif // HEADER_LISTA
