@@ -34,23 +34,23 @@ void Inserir (TProduto x, TLista *Lista)
 void LerProduto(TProduto *x)
 {
     printf("Digite codigo do produto: ");
-    __fpurge(stdin);
-    //fflush(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     scanf("%d", &x->codigo);
 
     printf("Digite o nome do produto: ");
-    __fpurge(stdin);
-    //fflush(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     fgets(x->nome,100,stdin);
 
     printf("Digite oq quantidade: ");
-    __fpurge(stdin);
-    //fflush(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     scanf("%d", &x->quantidade);
 
     printf("Digite o preco: ");
-    __fpurge(stdin);
-    //fflush(stdin);
+    //__fpurge(stdin);
+    fflush(stdin);
     scanf("%d", &x->preco);
     printf("\n");
 }
@@ -117,4 +117,21 @@ void Excluir (TLista *Lista, TProduto *Item)
     }
     else
         Item->codigo = -1;
+}
+
+void Liberar (TLista *Lista) {
+    while (!Vazia(*Lista)) {
+        Excluir(Lista, &Lista->primeiro->prox->item);
+    }
+    free(Lista->primeiro);
+
+    /*if (Vazia(*Lista) != 1) {
+        TCelula *Aux;
+        Aux = Lista->primeiro->prox;
+        while (Aux != NULL) {
+            Excluir(Lista, &Aux->item);
+            Aux = Lista->primeiro->prox;
+        }
+    }
+    free(Lista->primeiro);*/
 }
