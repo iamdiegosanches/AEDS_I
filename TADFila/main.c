@@ -3,8 +3,11 @@
 
 #include "interface.h"
 
-int main() {
+int main()
+{
     TFila fila;
     FFVazia(&fila);
+
+    MENU(&fila);
     return 0;
 }
