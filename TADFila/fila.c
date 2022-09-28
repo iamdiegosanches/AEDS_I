@@ -43,7 +43,7 @@ void Desenfileirar (TFila *Fila, TProduto *Item)
         {
             Fila->tras = Fila->frente; // Tratamento de excessao
         }
-        Fila->tamanho++;
+        Fila->tamanho--;
     }
 }
 
