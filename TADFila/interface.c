@@ -39,7 +39,7 @@ void MENU(TFila *fila1)
             scanf("%d", &produto.codigo);
 
             TProduto Aux = Pesquisar(fila1, produto);
-            if(Aux.codigo != 0)
+            if(Aux.codigo == produto.codigo)
                 printf("\nO produto esta na lista!\n\n");
             else
                 printf("\nO produto NAO esta na lista!\n\n");
