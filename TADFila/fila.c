@@ -55,11 +55,30 @@ void LerProduto(TProduto *x)
     //__fpurge(stdin);
     fflush(stdin);
     scanf("%d", &x->codigo);
+
+    printf("Digite o nome do produto: ");
+    //__fpurge(stdin);
+    fflush(stdin);
+    fgets(x->nome,100,stdin);
+
+    printf("Digite oq quantidade: ");
+    //__fpurge(stdin);
+    fflush(stdin);
+    scanf("%d", &x->quantidade);
+
+    printf("Digite o preco: ");
+    //__fpurge(stdin);
+    fflush(stdin);
+    scanf("%d", &x->preco);
+    printf("\n");
 }
 
 void ImprimirProduto(TProduto x)
 {
     printf("\nCodigo: %d\n", x.codigo);
+    printf("Nome: %s", x.nome);
+    printf("Quantidade: %d\n", x.quantidade);
+    printf("Preco: %d\n\n", x.preco);
 }
 
 void Liberar (TFila *Fila)
