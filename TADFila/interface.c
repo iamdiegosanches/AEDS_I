@@ -45,7 +45,7 @@ void MENU(TFila *fila1)
                 printf("\nO produto NAO esta na lista!\n\n");
 
             break;
-        case 3: // DESENFILERAR
+        case 3: // EXCLUIR
             Desenfileirar(fila1, &produto);
 
             if(produto.codigo != -1)
