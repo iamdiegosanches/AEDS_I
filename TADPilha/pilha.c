@@ -28,6 +28,8 @@ TProduto Pesquisar (TProduto Item, TPilha *Pilha) {
         Pop(Pilha1, &x);
         if(Item.codigo == x.codigo)
             Aux.codigo = x.codigo;
+        else
+            Aux.codigo = -1;
         Push(&Pilha2, x);
     }
     
