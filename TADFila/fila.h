@@ -7,6 +7,9 @@
 typedef struct item
 {
     int codigo;
+    char nome[100];
+    int quantidade;
+    int preco;
 } TProduto;
 
 typedef struct celula
