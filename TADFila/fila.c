@@ -44,6 +44,8 @@ void Desenfileirar (TFila *Fila, TProduto *Item)
             Fila->tras = Fila->frente; // Tratamento de excessao
         }
         Fila->tamanho--;
+    } else {
+        Item->codigo = -1;
     }
 }
 
@@ -102,6 +104,15 @@ void Imprimir2 (TFila *Fila)
     }
 }
 
-//TProduto Pesquisar (TFila *Fila1, TProduto Item) {
-//    return NULL;
-//}
+TProduto Pesquisar (TFila *Fila1, TProduto Item) {
+    TProduto x, Aux;
+    int n = Tamanho(*Fila1);
+    while (n != 0) {
+        Desenfileirar(Fila1, &x);
+        if(x.codigo == Item.codigo)
+            Aux.codigo = Item.codigo;
+        Enfileirar (x, Fila1);
+        n--;
+    }
+    return Aux;
+}
