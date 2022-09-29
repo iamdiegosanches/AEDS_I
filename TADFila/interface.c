@@ -38,16 +38,14 @@ void MENU(TFila *fila1)
             fflush(stdin);
             scanf("%d", &produto.codigo);
 
-            //if(Pesquisar(fila1, produto) != NULL)
-            //    printf("\nO produto esta na lista!\n\n");
-            //else
-            //    printf("\nO produto NAO esta na lista!\n\n");
+            TProduto Aux = Pesquisar(fila1, produto);
+            if(Aux.codigo != 0)
+                printf("\nO produto esta na lista!\n\n");
+            else
+                printf("\nO produto NAO esta na lista!\n\n");
 
             break;
-        case 3: // EXCLUIR
-            printf("\nInforme o codigo do produto que deseja excluir: ");
-            scanf("%d", &produto.codigo);
-
+        case 3: // DESENFILERAR
             Desenfileirar(fila1, &produto);
 
             if(produto.codigo != -1)
@@ -77,4 +75,3 @@ void MENU(TFila *fila1)
     }
     while(opcao != 5);
 }
-
