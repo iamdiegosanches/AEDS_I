@@ -9,9 +9,22 @@ void Liberar (TFila *Fila)
     free(Fila->frente);
 }
 
-int VerificaIgual (TFila Fila1, TFila fila2) { // TERMINAR AINDA
-    if (Fila1.tamanho != Fila2.tamanho) {
+// 2
+int VerificaIgual (TFila *Fila1, TFila *Fila2) {
+    if (Fila1->tamanho != Fila2->tamanho) {
         return 0;
+    } else {
+        int res = 1;
+        int n = Tamanho(*Fila2);
+        TProduto x;
+        while(n != 0) {
+            Desenfileirar(Fila2, &x);
+            if(Pesquisar(Fila1, x).codigo == -1)
+                res = 0;
+            Enfileirar(x, Fila2);
+            n--;
+        }
+        return res;
     }
 }
 
