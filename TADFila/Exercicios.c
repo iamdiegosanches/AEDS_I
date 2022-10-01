@@ -1,3 +1,4 @@
+// 1
 void Liberar (TFila *Fila)
 {
     TProduto x;
@@ -14,6 +15,7 @@ int VerificaIgual (TFila Fila1, TFila fila2) { // TERMINAR AINDA
     }
 }
 
+// 3
 void ExcluirIndice (TFila *Fila1, int indice) {
     if (indice > 0 && indice <= Tamanho(*Fila1)) {
         int n = 1;
