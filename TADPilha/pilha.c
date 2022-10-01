@@ -49,12 +49,21 @@ void Liberar(TPilha *Pilha) {
     free(Pilha->topo);
 }
 
+void LerProduto(TProduto *x)
+{
+    printf("Digite codigo do produto: ");
+    //__fpurge(stdin);
+    fflush(stdin);
+    scanf("%d", &x->codigo);
+}
+
 void ImprimirProduto(TProduto x) {
     printf("\nCodigo: %d\n", x.codigo);
 }
 
 void Imprimir (TPilha *Pilha1) {
     TPilha Pilha2;
+    FPVazia(&Pilha2);
     TProduto x;
     while (!Vazia(*Pilha1)) {
         Pop(Pilha1, &x);
@@ -66,17 +75,19 @@ void Imprimir (TPilha *Pilha1) {
         Pop(&Pilha2, &x);
         Push(Pilha1, x);
     }
+    free(Pilha2.topo);
 }
 
 TProduto Pesquisar (TProduto Item, TPilha *Pilha1) {
     TPilha Pilha2;
+    FPVazia(&Pilha2);
     TProduto x, Aux;
     while (!Vazia(*Pilha1)) {
         Pop(Pilha1, &x);
         if(Item.codigo == x.codigo)
             Aux.codigo = x.codigo;
-        else
-            Aux.codigo = -1;
+        //else
+            //Aux.codigo = -1;
         Push(&Pilha2, x);
     }
 
@@ -84,5 +95,6 @@ TProduto Pesquisar (TProduto Item, TPilha *Pilha1) {
         Pop(&Pilha2, &x);
         Push(Pilha1, x);
     }
+    free(Pilha2.topo);
     return Aux;
 }
