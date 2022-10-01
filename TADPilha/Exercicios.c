@@ -1,3 +1,4 @@
+// Pilha 1.a)
 void InverteComPilha (TPilha *Pilha) {
   TPilha P1, P2;
   FPVazia(&P1);
@@ -19,7 +20,7 @@ void InverteComPilha (TPilha *Pilha) {
   free(P2.topo);
 }
 
-
+// Pilha 1.b)
 void InverteComFila (TPilha *Pilha) {
   TFila Fila;
   FFVazia(&Fila);
