@@ -23,6 +23,7 @@ int Tamanho (TPilha Pilha);
 void Push (TPilha *Pilha, TProduto x);
 void Pop (TPilha *Pilha, TProduto *Item);
 void Liberar(TPilha *Pilha);
+void LerProduto(TProduto *x);
 void ImprimirProduto(TProduto x);
 void Imprimir (TPilha *Pilha1);
 TProduto Pesquisar (TProduto Item, TPilha *Pilha1);
