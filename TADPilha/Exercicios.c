@@ -76,12 +76,12 @@ int ExpValid (char *str) {
                 Desempilha(x, &pilha);
         }
         
-        if(*(str + i) == ']) {
+        if(*(str + i) == ']') {
             if(pilha.topo == '[')
                 Desempilha(x, &pilha);
         }
         
-        if(*(str + i) == ')) {
+        if(*(str + i) == ')') {
             if(pilha.topo == '(')
                 Desempilha(x, &pilha);
         }
