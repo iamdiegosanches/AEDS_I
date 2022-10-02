@@ -35,3 +35,35 @@ void InverteComFila (TPilha *Pilha) {
   }
   free(Fila.frente);
 }
+
+// 3 - CONFERIR
+int ExpValid (char *str) {
+    TPilha pilha;
+    FPVazia(&pilha);
+    TCharacter x;
+    int i = 0;
+    while(*(str + i) != '\0'){
+        if(*(str + i) == '{' || *(str + i) == '[' || *(str + i) == '(')
+            Empilha(&pilha, *(str + i));
+        
+        if(*(str + i) == '}') {
+            if(pilha.topo == '{')
+                Desempilha(x, &pilha);
+        }
+        
+        if(*(str + i) == ']) {
+            if(pilha.topo == '[')
+                Desempilha(x, &pilha);
+        }
+        
+        if(*(str + i) == ')) {
+            if(pilha.topo == '('
+                Desempilha(x, &pilha);
+        }
+        i++;
+    }
+    if(Vazia(pilha))
+        return 1;
+    else
+        return 0;
+}
