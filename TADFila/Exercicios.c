@@ -61,3 +61,24 @@ void Intersecao (TFila *Fila1, TFila *Fila2, TFila *Fila3) {
         n--;
     }
 }
+
+// 5
+void Diferenca (TFila *Fila1, TFila *Fila2, TFila *Fila3) {
+    int n = Tamanho(*Fila2);
+    TProduto x;
+    while(n != 0) {
+        Desenfileirar(Fila2, &x);
+        if(Pesquisar(Fila1, x).codigo == -1)
+            Enfileirar(x, Fila3);
+        Enfileirar(x, Fila2);
+        n--;
+    }
+    n = Tamanho(*Fila1);
+    while(n != 0) {
+        Desenfileirar(Fila1, &x);
+        if(Pesquisar(Fila2, x).codigo == -1)
+            Enfileirar(x, Fila3);
+        Enfileirar(x, Fila1);
+        n--;
+    }
+}
