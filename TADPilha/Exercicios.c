@@ -57,7 +57,7 @@ int ExpValid (char *str) {
         }
         
         if(*(str + i) == ')) {
-            if(pilha.topo == '('
+            if(pilha.topo == '(')
                 Desempilha(x, &pilha);
         }
         i++;
