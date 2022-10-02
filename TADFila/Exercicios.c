@@ -48,3 +48,16 @@ void ExcluirIndice (TFila *Fila1, int indice) {
         free(Fila2.frente);
     }
 }
+
+// 4
+void Intersecao (TFila *Fila1, TFila *Fila2, TFila *Fila3) {
+    int n = Tamanho(*Fila2);
+    TProduto x;
+    while(n != 0) {
+        Desenfileirar(Fila2, &x);
+        if(Pesquisar(Fila1, x).codigo != -1 && Pesquisar(Fila1, x).codigo)
+            Enfileirar(x, Fila3);
+        Enfileirar(x, Fila2);
+        n--;
+    }
+}
