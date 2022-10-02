@@ -36,6 +36,31 @@ void InverteComFila (TPilha *Pilha) {
   free(Fila.frente);
 }
 
+// 1 - c
+void Inverte (TPilha *Pilha1, TPilha *Pilha2) {
+    int n = Tamanho(*Pilha1);
+    TProduto Aux;
+    TProduto x;
+    if(n == 0) { // Caso base
+        while(!Vazia(*Pilha2)){
+            Pop(Pilha2, &x);
+            Push(Pilha1, x);
+        }
+    } else { // Passo indutivo
+        for(int i = 0; i < n-1; i++) {
+            Pop(Pilha1, &x);
+            Push(Pilha2, x);
+        }
+        Pop(Pilha1, &Aux);
+        for(int i = 0; i < n-1; i++) {
+            Pop(Pilha2, &x);
+            Push(Pilha1, x);
+        }
+        Push(Pilha2, Aux);
+        Inverte(Pilha1, Pilha2);
+    }
+}
+
 // 3 - CONFERIR
 int ExpValid (char *str) {
     TPilha pilha;
