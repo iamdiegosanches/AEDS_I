@@ -31,6 +31,7 @@ void Pop (TPilha *Pilha, TProduto *Item) {
     TCelula* q;
     if (Vazia(*Pilha)) {
         printf("Erro lista vazia \n");
+        Item->codigo = 0;
         return;
     }
     q = Pilha->topo;
@@ -55,10 +56,29 @@ void LerProduto(TProduto *x)
     //__fpurge(stdin);
     fflush(stdin);
     scanf("%d", &x->codigo);
+
+    printf("Digite o nome do produto: ");
+    //__fpurge(stdin);
+    fflush(stdin);
+    fgets(x->nome,100,stdin);
+
+    printf("Digite oq quantidade: ");
+    //__fpurge(stdin);
+    fflush(stdin);
+    scanf("%d", &x->quantidade);
+
+    printf("Digite o preco: ");
+    //__fpurge(stdin);
+    fflush(stdin);
+    scanf("%d", &x->preco);
+    printf("\n");;
 }
 
 void ImprimirProduto(TProduto x) {
     printf("\nCodigo: %d\n", x.codigo);
+    printf("Nome: %s", x.nome);
+    printf("Quantidade: %d\n", x.quantidade);
+    printf("Preco: %d\n\n", x.preco);
 }
 
 void Imprimir (TPilha *Pilha1) {
