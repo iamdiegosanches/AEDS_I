@@ -14,17 +14,44 @@ int VerificaIgual (TFila *Fila1, TFila *Fila2) {
     if (Fila1->tamanho != Fila2->tamanho) {
         return 0;
     } else {
-        int res = 1;
-        int n = Tamanho(*Fila2);
-        TProduto x;
+        TFila FilaAux;
+        FFVazia(&FilaAux);
+        int n = Tamanho(*Fila1);
+        TProduto x, y;
+        // Fazendo uma copia de Fila1;
+        while(n != 0) {
+            Desenfileirar(Fila1, &x);
+            Enfileirar(x, &FilaAux);
+            Enfileirar(x, Fila1);
+            n--;
+        }
+        n = Tamanho(*Fila2);
+        int n2;
         while(n != 0) {
             Desenfileirar(Fila2, &x);
-            if(Pesquisar(Fila1, x).codigo == -1)
-                res = 0;
+            if(Pesquisar(&FilaAux, x).codigo == x.codigo) { //Encontrou o item
+                // Remover o item encontrado
+                n2 = Tamanho(FilaAux);
+                while(n2 != 0) {
+                    Desenfileirar(&FilaAux, &y);
+                    if(y.codigo != x.codigo)
+                        Enfileirar(y, &FilaAux);
+                    else
+                        break;
+                    n2--;
+                }
+            }
             Enfileirar(x, Fila2);
             n--;
         }
-        return res;
+        if(Tamanho(FilaAux) == 0) {
+            free(FilaAux.frente);
+            return 1;
+        } else {
+            Liberar(&FilaAux);
+            return 0;
+        }
+
     }
 }
 
