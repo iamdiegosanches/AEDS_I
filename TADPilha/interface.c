@@ -75,4 +75,3 @@ void MENU(TPilha *pilha1)
     }
     while(opcao != 5);
 }
-
