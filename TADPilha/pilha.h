@@ -3,7 +3,9 @@
 
 typedef struct{
     int codigo;
-    // Demais estruturas
+    char nome[100];
+    int quantidade;
+    int preco;
 } TProduto;
 
 typedef struct celula {
