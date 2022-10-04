@@ -102,12 +102,11 @@ TProduto Pesquisar (TProduto Item, TPilha *Pilha1) {
     TPilha Pilha2;
     FPVazia(&Pilha2);
     TProduto x, Aux;
+    Aux.codigo = -1;
     while (!Vazia(*Pilha1)) {
         Pop(Pilha1, &x);
         if(Item.codigo == x.codigo)
             Aux.codigo = x.codigo;
-        //else
-            //Aux.codigo = -1;
         Push(&Pilha2, x);
     }
 
