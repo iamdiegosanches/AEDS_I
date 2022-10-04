@@ -116,3 +116,19 @@ int ExpValid (char *str) {
 }
 
 // 4
+void soma(TPilha *Pilha1, TPilha *Pilha2, TPilha *Pilha3) {
+    int resultado = 0;
+    int soma, D1, D2;
+    while(!Vazia(*Pilha1) || !Vazia(*Pilha2)) {
+        Pop(Pilha1, &D1);
+        Pop(Pilha2, &D2);
+        soma = resultado + D1 + D2;
+        if (soma.codigo > 9) {
+            resultado = 1;
+            soma = soma - 10;
+        } else {
+            resultado = 0;
+        }
+        Push(Pilha3, soma);
+    }
+}
