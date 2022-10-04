@@ -68,7 +68,7 @@ void Diferenca (TFila *Fila1, TFila *Fila2, TFila *Fila3) {
     TProduto x;
     while(n != 0) {
         Desenfileirar(Fila2, &x);
-        if(Pesquisar(Fila1, x).codigo == -1)
+        if(Pesquisar(Fila1, x).codigo == -1 && Pesquisar(Fila3, x).codigo != x.codigo)
             Enfileirar(x, Fila3);
         Enfileirar(x, Fila2);
         n--;
@@ -76,7 +76,7 @@ void Diferenca (TFila *Fila1, TFila *Fila2, TFila *Fila3) {
     n = Tamanho(*Fila1);
     while(n != 0) {
         Desenfileirar(Fila1, &x);
-        if(Pesquisar(Fila2, x).codigo == -1)
+        if(Pesquisar(Fila2, x).codigo == -1 && Pesquisar(Fila3, x).codigo != x.codigo)
             Enfileirar(x, Fila3);
         Enfileirar(x, Fila1);
         n--;
