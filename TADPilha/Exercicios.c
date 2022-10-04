@@ -123,9 +123,30 @@ void soma(TPilha *Pilha1, TPilha *Pilha2, TPilha *Pilha3) {
         Pop(Pilha1, &D1);
         Pop(Pilha2, &D2);
         soma = resultado + D1 + D2;
+        // Vai um
         if (soma.codigo > 9) {
             resultado = 1;
             soma = soma - 10;
+        } else {
+            resultado = 0;
+        }
+        Push(Pilha3, soma);
+    }
+}
+
+// SOMA COM CODIGOS
+void soma(TPilha *Pilha1, TPilha *Pilha2, TPilha *Pilha3) {
+    int resultado = 0;
+    TProduto D1, D2;
+    TProduto soma;
+    while(!Vazia(*Pilha1) || !Vazia(*Pilha2)) {
+        Pop(Pilha1, &D1);
+        Pop(Pilha2, &D2);
+        soma.codigo = resultado + D1.codigo + D2.codigo;
+        // "Vai um"
+        if (soma.codigo > 9) {
+            resultado = 1;
+            soma.codigo = soma.codigo - 10;
         } else {
             resultado = 0;
         }
