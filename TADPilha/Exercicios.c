@@ -36,28 +36,35 @@ void InverteComFila (TPilha *Pilha) {
   free(Fila.frente);
 }
 
-// 1 - c --> fazer isso sem passar pilha como argumento
-void Inverte (TPilha *Pilha1, TPilha *Pilha2) {
+// 1 - c
+void Inverte (TPilha *Pilha1) {
     int n = Tamanho(*Pilha1);
+    TPilha Pilha2;
+    FPVazia(&Pilha2);
     TProduto Aux;
     TProduto x;
-    if(n == 0) { // Caso base
-        while(!Vazia(*Pilha2)){
-            Pop(Pilha2, &x);
-            Push(Pilha1, x);
-        }
-    } else { // Passo indutivo
-        for(int i = 0; i < n-1; i++) {
+    int i = 0;
+    while(n != 0) {
+        while(i < n-1) {
             Pop(Pilha1, &x);
-            Push(Pilha2, x);
+            Push(&Pilha2, x);
+            i++;
         }
         Pop(Pilha1, &Aux);
-        for(int i = 0; i < n-1; i++) {
-            Pop(Pilha2, &x);
+        i = 0;
+        while(i < n-1) {
+            Pop(&Pilha2, &x);
             Push(Pilha1, x);
+            i++;
         }
-        Push(Pilha2, Aux);
-        Inverte(Pilha1, Pilha2);
+        Push(&Pilha2, Aux);
+        n--;
+        i = 0;
+    }
+
+    while(!Vazia(Pilha2)) {
+        Pop(&Pilha2, &x);
+        Push(Pilha1, x);
     }
 }
 
