@@ -142,7 +142,7 @@ TProduto Pesquisar (TFila *Fila1, TProduto Item)
 TProduto Pesquisar2 (TFila *F1, TProduto x) {
     TFila F2;
     FFVazia(&F2);
-    TProdtuo y, z;
+    TProduto y, z;
     int Flag = 0;
     while(!Vazia(*F1)) {
         Desenfileirar(F1, &y);
@@ -161,4 +161,5 @@ TProduto Pesquisar2 (TFila *F1, TProduto x) {
     } else {
         z.codigo = -1;
         return z;
+    }
 }
