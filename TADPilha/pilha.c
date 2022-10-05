@@ -106,7 +106,7 @@ TProduto Pesquisar (TProduto Item, TPilha *Pilha1) {
     while (!Vazia(*Pilha1)) {
         Pop(Pilha1, &x);
         if(Item.codigo == x.codigo)
-            Aux.codigo = x.codigo;
+            Aux = x;
         Push(&Pilha2, x);
     }
 
