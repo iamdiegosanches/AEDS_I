@@ -170,7 +170,7 @@ void sortPilha(TPilha *pilha) {
     int i = 0;
     while(n != 0) {
             Pop(pilha, &x);
-        while(i < n) {
+        while(i < n-1) {
             Pop(pilha, &y);
             if (x.codigo > y.codigo) {
                 Push(&pilhaAux, y);
@@ -179,6 +179,7 @@ void sortPilha(TPilha *pilha) {
             }
             i++;
         }
+        Push(&pilhaAux, x);
         while(!Vazia(pilhaAux)) {
             Pop(&pilhaAux, &y);
             Push(pilha, y);
