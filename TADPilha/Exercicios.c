@@ -94,7 +94,7 @@ void Transfere (TPilha *Pilha1, TPilha *Pilha2) {
 int ExpValid (char *str) {
     TPilha pilha;
     FPVazia(&pilha);
-    TCharacter x;
+    char x;
     int i = 0;
     while(*(str + i) != '\0'){
         if(*(str + i) == '{' || *(str + i) == '[' || *(str + i) == '(')
