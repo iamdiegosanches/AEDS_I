@@ -160,3 +160,30 @@ void soma(TPilha *Pilha1, TPilha *Pilha2, TPilha *Pilha3) {
         Push(Pilha3, soma);
     }
 }
+
+void sortPilha(TPilha *pilha) {
+    int n = Tamanho(*pilha);
+    TPilha pilhaAux;
+    FPVazia(&pilhaAux);
+    TProduto y;
+    TProduto x;
+    int i = 0;
+    while(n != 0) {
+            Pop(pilha, &x);
+        while(i < n) {
+            Pop(pilha, &y);
+            if (x.codigo > y.codigo) {
+                Push(&pilhaAux, y);
+            } else {
+                Push(&pilhaAux, x);
+            }
+            i++;
+        }
+        while(!Vazia(pilhaAux)) {
+            Pop(&pilhaAux, &y);
+            Push(pilha, y);
+        }
+        n--;
+        i = 0;
+    }
+}
