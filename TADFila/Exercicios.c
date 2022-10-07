@@ -109,3 +109,23 @@ void Diferenca (TFila *Fila1, TFila *Fila2, TFila *Fila3) {
         n--;
     }
 }
+
+void Uniao (TFila *F1, TFila *F2, TFila *F3) {
+    int n = Tamanho(*F1);
+    TProduto x;
+    while (n != 0) {
+        Desenfileirar(F1, &x);
+        Enfileirar(x, F2);
+        if(Pesquisar2(F3, x).codigo == -1)
+                Enfileirar(x, F3);
+        n--;
+    }
+    n = Tamanho(*F2);
+    while(n != 0) {
+        Desenfileirar(F2, &x);
+        Enfileirar(x, F2);
+            if(Pesquisar2(F3, x).codigo == -1)
+                Enfileirar(x, F3);
+        n--;
+    }
+}
