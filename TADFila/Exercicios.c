@@ -110,6 +110,7 @@ void Diferenca (TFila *Fila1, TFila *Fila2, TFila *Fila3) {
     }
 }
 
+// Operação de união
 void Uniao (TFila *F1, TFila *F2, TFila *F3) {
     int n = Tamanho(*F1);
     TProduto x;
@@ -129,3 +130,5 @@ void Uniao (TFila *F1, TFila *F2, TFila *F3) {
         n--;
     }
 }
+
+// Organizar fila usando pilha
