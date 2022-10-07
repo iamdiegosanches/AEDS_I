@@ -150,3 +150,27 @@ void sortFila(TFila *fila) {
     }
     free(pilha.topo);
 }
+
+// Inverter fila usando fila
+void inverteFila (TFila *Fila) {
+    TFila FilaAux;
+    FFVazia(&FilaAux);
+    int n = Tamanho(*Fila);
+    int i;
+    TProduto x;
+    while(n != 0) {
+        for(i = 0; i < (Tamanho(*Fila)-1); i++) {
+            Desenfileirar(Fila, &x);
+            Enfileirar(x, Fila);
+        }
+        Desenfileirar(Fila, &x);
+        Enfileirar(x, &FilaAux);
+        n--;
+    }
+
+    while(!Vazia(FilaAux)) {
+        Desenfileirar(&FilaAux, &x);
+        Enfileirar(x, Fila);
+    }
+    Liberar(&FilaAux);
+}
