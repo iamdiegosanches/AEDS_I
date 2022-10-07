@@ -132,3 +132,21 @@ void Uniao (TFila *F1, TFila *F2, TFila *F3) {
 }
 
 // Organizar fila usando pilha
+void sortFila(TFila *fila) {
+    TPilha pilha;
+    FPVazia(&pilha);
+    TProduto x, y;
+    while(!Vazia(*fila)) {
+        Desenfileirar(fila, &x);
+        while(!Vazia2(pilha) && pilha.topo->prox->item.codigo < x.codigo) {
+            Pop(&pilha, &y);
+            Enfileirar(y, fila);
+        }
+        Push(&pilha, x);
+    }
+    while(!Vazia2(pilha)) {
+        Pop(&pilha, &y);
+        Enfileirar(y, fila);
+    }
+    free(pilha.topo);
+}
