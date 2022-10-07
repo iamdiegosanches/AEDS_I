@@ -178,4 +178,5 @@ void sortPilha(TPilha *Pilha) {
         Pop(&PilhaAux, &y);
         Push(Pilha, y);
     }
+    free(PilhaAux.topo);
 }
