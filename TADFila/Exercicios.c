@@ -116,7 +116,7 @@ void Uniao (TFila *F1, TFila *F2, TFila *F3) {
     TProduto x;
     while (n != 0) {
         Desenfileirar(F1, &x);
-        Enfileirar(x, F2);
+        Enfileirar(x, F1);
         if(Pesquisar2(F3, x).codigo == -1)
                 Enfileirar(x, F3);
         n--;
