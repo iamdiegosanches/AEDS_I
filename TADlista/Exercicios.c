@@ -32,6 +32,7 @@ void inverteLista (TLista *Lista) {
     }
 }
 
+// Ordena uma lista (Buscar meio mais econômico)
 void sortLista (TLista *Lista) {
     TCelula *Aux1;
     TCelula *Aux2;
