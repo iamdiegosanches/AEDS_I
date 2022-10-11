@@ -57,3 +57,15 @@ void sortLista (TLista *Lista) {
         n--;
     }
 }
+
+// Edita um item
+void editaItem (TLista *L1, TProduto *Item, TProduto Item2) {
+    TCelula *Aux1, *Aux2;
+    Aux1 = Pesquisar(*L1, *Item);
+    if (Aux1 != NULL) {
+        Aux2 = Aux1->prox;
+        Aux2->item = Item2;
+    } else {
+        Item->codigo = -1;
+    }
+}
